@@ -1,0 +1,27 @@
+name: Continous Integration
+on:
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v3
+        name: Installin Java
+        with:
+            distribution: 'corretto'
+            java-version: '21'
+      - name: Run chmod to make gradlew executable
+        run: chmod +x ./gradlew
+      - name: Build with Gradle
+        uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
+        with:
+             arguments: build
+
