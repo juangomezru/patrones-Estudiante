@@ -1,4 +1,4 @@
-name: Continous Integrations
+name: Continous Integration
 on:
   pull_request:
     branches: ["main"]
