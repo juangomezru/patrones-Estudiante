@@ -41,7 +41,7 @@ jobs:
       - name: Publish dockerimage to docker hub
         run: docker push jeanvaes/uniestudiante:${{ secrets.VERSION }}
         
-      - name: Update Version
+      - name: Update Version Number
         uses: hmanzur/actions-set-secret@v2.0.0
         with:
           name: 'VERSION'
