@@ -13,7 +13,6 @@ public class EstudianteController {
     @Autowired
     EstudianteLogica estudianteLogica;
 
-    @Value("${dato}")
     private String variable;
 
 
