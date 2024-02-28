@@ -57,7 +57,7 @@ jobs:
           git config user.name "GitHub Actions"
           
       - name: Commit and push changes
-        uses: devops-infra/action-commit-push@v0.3
+        uses: actions-js/push@master
         with:
           repository: jeanvaes/k8s.app.com
           github_token: ${{ secrets.TOKEN }}
