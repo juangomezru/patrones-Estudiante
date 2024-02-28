@@ -44,13 +44,6 @@ jobs:
       - name: Publish dockerimage to docker hub
         run: docker push jeanvaes/uniestudiante:${{ secrets.VERSION }}
         
-      - name: Update Version Number
-        uses: hmanzur/actions-set-secret@v2.0.0
-        with:
-          name: 'VERSION'
-          value: $((${{ secrets.VERSION }}+1))
-          repository: juangomezru/patrones-Estudiante
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
       - name: Update Version in Helm
         run: |
           git clone https://github.com/jeanvaes/k8s.app.com.git
@@ -66,3 +59,10 @@ jobs:
           github_token: ${{ secrets.TOKEN }}
           repository: jeanvaes/k8s.app.com
           message: Version updated ${date}
+      - name: Update Version Number
+        uses: hmanzur/actions-set-secret@v2.0.0
+        with:
+          name: 'VERSION'
+          value: $((${{ secrets.VERSION }}+1))
+          repository: juangomezru/patrones-Estudiante
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
