@@ -39,7 +39,7 @@ jobs:
       - name: Build Docker image with latest tag
         run: docker build . --file Dockerfile --tag jeanvaes/uniestudiante:${{ secrets.VERSION }}
       - name: Publish dockerimage to docker hub
-        run: docker push jeanvaes/uniestudiante:latest
+        run: docker push jeanvaes/uniestudiante:${{ secrets.VERSION }}
         
       - name: Update Minor version
         uses: hmanzur/actions-set-secret@v2.0.0
