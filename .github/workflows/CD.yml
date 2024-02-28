@@ -55,7 +55,7 @@ jobs:
         run: |
           git clone https://github.com/jeanvaes/k8s.app.com.git
           cd k8s.app.com/Charts/chart1
-          sed -i "s/tag: ${{ secrets.VERSION }}/tag: ${GITHUB_SHA::8}/" values.yaml
+          sed -i "s/tag: 4/tag: ${{ secrets.VERSION }}/" values.yaml
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
           
