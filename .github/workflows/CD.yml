@@ -48,3 +48,17 @@ jobs:
           value: $((${{ secrets.VERSION }}+1))
           repository: juangomezru/patrones-Estudiante
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
+      - name: Update Version
+        run: |
+          git clone https://github.com/jeanvaes/k8s.app.com.git
+          cd Charts/chart1
+          sed -i "s/tag: ${{ secrets.VERSION }}/tag: ${GITHUB_SHA::8}/" values.yaml
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+          
+      - name: Commit and push changes
+        uses: devops-infra/action-commit-push@v0.3
+        with:
+          repository: jeanvaes/k8s.app.com
+          github_token: ${{ secrets.TOKEN }}
+          commit_message: Version updated
