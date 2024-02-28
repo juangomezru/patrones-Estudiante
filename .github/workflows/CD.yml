@@ -61,4 +61,4 @@ jobs:
         with:
           repository: jeanvaes/k8s.app.com
           github_token: ${{ secrets.TOKEN }}
-          commit_message: Version updated
+          message: Version updated ${date}
