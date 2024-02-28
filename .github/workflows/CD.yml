@@ -48,10 +48,10 @@ jobs:
           value: $((${{ secrets.VERSION }}+1))
           repository: juangomezru/patrones-Estudiante
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
-      - name: Update Version
+      - name: Update Version in Helm
         run: |
           git clone https://github.com/jeanvaes/k8s.app.com.git
-          cd Charts/chart1
+          cd k8s.app.com/Charts/chart1
           sed -i "s/tag: ${{ secrets.VERSION }}/tag: ${GITHUB_SHA::8}/" values.yaml
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
