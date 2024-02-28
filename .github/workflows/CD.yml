@@ -46,5 +46,5 @@ jobs:
         with:
           name: 'VERSION'
           value: $((${{ secrets.VERSION }}+1))
-          repository: EriksonGM/MasterReport
+          repository: juangomezru/patrones-Estudiante
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
